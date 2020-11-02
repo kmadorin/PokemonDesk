@@ -37,6 +37,6 @@ interface MyArray<T> {
     [n: number] : T;
 
     map<U>(fn: (el: T) => U) : U[];
-    reduce<U>(fn: (acc: U, curValue: T, index: number, arr: MyArray<T>) => U): U;
+    reduce<U>(fn: (acc: U, curValue: T, index: number, arr: MyArray<T>) => U, init: U): U;
 };
 
