@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div>
       <Header />
-      <div className={cn(s.header, 'color')}>This is App Component adsf</div>
+      <div className={cn(s.header, 'color')}>This is App Component</div>
       <Footer />
     </div>
   );
