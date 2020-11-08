@@ -1,17 +1,22 @@
 import React from 'react';
-import cn from 'classnames';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
-import s from './App.module.scss';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Home from './pages/Home';
+import Pokedex from './pages/Pokedex';
 
-const App = () => {
+const App: React.FC = () => {
   return (
-    <div>
-      <Header />
-      <div className={cn(s.header, 'color')}>This is App Component</div>
-      <Footer />
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/pokedex">
+          <Pokedex />
+        </Route>
+        <Redirect to="/" />
+      </Switch>
+    </Router>
   );
 };
 

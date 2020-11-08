@@ -1,5 +1,5 @@
 const path = require('path');
-const HTMLWebpackPlugins = require('html-webpack-plugin');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV;
 
@@ -13,12 +13,17 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
   },
+  watch: true,
+  watchOptions: {
+    ignored: /node_modules/,
+    poll: 1000,
+  },
   module: {
     rules: [
       {
         test: /\.[tj]sx?$/,
-        exclude: /node_modules/,
         use: ['ts-loader'],
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -42,10 +47,30 @@ module.exports = {
           'sass-loader',
         ],
       },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'url-loader'],
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
+      },
+      {
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        use: ['url-loader'],
+      },
     ],
   },
   plugins: [
-    new HTMLWebpackPlugins({
+    new HTMLWebpackPlugin({
       template: path.resolve(__dirname, 'public/index.html'),
     }),
   ],
@@ -53,6 +78,7 @@ module.exports = {
     port: 3000,
     open: true,
     hot: true,
+    historyApiFallback: true,
   },
   devtool: 'source-map',
 };
