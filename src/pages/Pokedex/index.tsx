@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import Layout from '../../components/Layout';
 import Footer from '../../components/Footer';
 import Heading from '../../components/Heading';
 import Filter from '../../components/Filter';
 import PokemonCard, { Pokemon } from '../../components/PokemonCard';
+import useData from '../../hook/getData';
 
 import classes from './Pokedex.module.scss';
 
-interface IResponse {
+interface PokemonResponse {
   total: number;
   count: number;
   offset: number;
@@ -16,42 +17,19 @@ interface IResponse {
   pokemons: Pokemon[];
 }
 
-const usePokemons = () => {
-  const [data, setData] = useState<IResponse | null>(null);
-  const [isLoading, setLoading] = useState<boolean>(false);
-  const [isError, setError] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    const getPokemons = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch('http://zar.hosthot.ru/api/v1/pokemons');
-        const result = await response.json();
-        setData(result);
-        setLoading(false);
-      } catch (e) {
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    getPokemons();
-  }, []);
-
-  return {
-    data,
-    isLoading,
-    isError,
-  };
-};
-
 const Pokedex: React.FC = () => {
-  const { data, isLoading, isError } = usePokemons();
+  const [searchValue, setSearchValue] = useState('');
+  const query = useMemo(
+    () => ({
+      name: searchValue,
+    }),
+    [searchValue],
+  );
 
-  if (isLoading) {
-    return <div>Loading Pokemons...</div>;
-  }
+  const { data, isLoading, isError } = useData<PokemonResponse>('getPokemons', query);
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value);
+  };
 
   if (isError) {
     return <div>Something wrong!</div>;
@@ -64,7 +42,13 @@ const Pokedex: React.FC = () => {
           {data?.total} <b>Pokemons</b> for you to choose your favorite
         </Heading>
 
-        <input type="search" className={classes.search} placeholder="Encuentra tu pokémon..." />
+        <input
+          type="search"
+          className={classes.search}
+          placeholder="Encuentra tu pokémon..."
+          value={searchValue}
+          onChange={handleSearchChange}
+        />
 
         <div className={classes.filters}>
           <Filter />
@@ -72,13 +56,17 @@ const Pokedex: React.FC = () => {
           <Filter />
         </div>
 
-        <ul className={classes.list}>
-          {data?.pokemons.map((item) => (
-            <li key={item.id}>
-              <PokemonCard pokemon={item} />
-            </li>
-          ))}
-        </ul>
+        {isLoading ? (
+          'Loading Pokemons'
+        ) : (
+          <ul className={classes.list}>
+            {data?.pokemons.map((item) => (
+              <li key={item.id}>
+                <PokemonCard pokemon={item} />
+              </li>
+            ))}
+          </ul>
+        )}
       </Layout>
       <Footer />
     </div>
