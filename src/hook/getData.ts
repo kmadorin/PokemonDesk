@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import req from '../utils/request';
 
-const useData = <T>(endpoint: string, query: { [key: string]: string | number }) => {
+const useData = <T>(endpoint: string, query: { [key: string]: string | number }, deps: any[] = []) => {
   const [data, setData] = useState<T | null>(null);
   const [isLoading, setLoading] = useState<boolean>(false);
   const [isError, setError] = useState<boolean | null>(null);
@@ -21,7 +21,7 @@ const useData = <T>(endpoint: string, query: { [key: string]: string | number })
     };
 
     getData();
-  }, [query]);
+  }, deps);
 
   return {
     data,

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 
 import Layout from '../../components/Layout';
 import Footer from '../../components/Footer';
@@ -19,16 +19,12 @@ interface PokemonResponse {
 
 const Pokedex: React.FC = () => {
   const [searchValue, setSearchValue] = useState('');
-  const query = useMemo(
-    () => ({
-      name: searchValue,
-    }),
-    [searchValue],
-  );
+  const [query, setQuery] = useState({});
 
-  const { data, isLoading, isError } = useData<PokemonResponse>('getPokemons', query);
+  const { data, isLoading, isError } = useData<PokemonResponse>('getPokemons', query, [searchValue]);
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
+    setQuery((s) => ({ ...s, name: e.target.value }));
   };
 
   if (isError) {
