@@ -3,31 +3,10 @@ import React from 'react';
 import Heading from '../Heading';
 
 import classes from './PokemonCard.module.scss';
-
-export interface Pokemon {
-  ['name_clean']: string;
-  abilities: string[];
-  stats: {
-    hp: number;
-    attack: number;
-    defense: number;
-    'special-attack': number;
-    'special-defense': number;
-    speed: number;
-  };
-  types: string[];
-  img: string;
-  name: string;
-  ['base_experience']: number;
-  height: number;
-  id: number;
-  ['is_default']: boolean;
-  order: number;
-  weight: number;
-}
+import { IPokemon } from '../../interface/pokemons';
 
 interface Props {
-  pokemon: Pokemon;
+  pokemon: IPokemon;
 }
 
 const color: { [key: string]: string } = {
