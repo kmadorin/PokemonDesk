@@ -1,7 +1,7 @@
 import url from 'url';
 import getUrlWithParamsConfig from './getUrlWithParamsConfig';
 
-async function req(endpoint: string, query: { [key: string]: string | number }) {
+async function req<T>(endpoint: string, query: { [key: string]: string | number }): Promise<T> {
   const uri = url.format(getUrlWithParamsConfig(endpoint, query));
 
   const response = await fetch(uri);
