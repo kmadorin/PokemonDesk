@@ -7,11 +7,11 @@ const useData = <T>(endpoint: string, query: { [key: string]: string | number },
   const [isError, setError] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const getData = async () => {
+    const getData = async (): Promise<void> => {
       setLoading(true);
 
       try {
-        const result = await req(endpoint, query);
+        const result = await req<T>(endpoint, query);
         setData(result);
       } catch (e) {
         setError(true);
