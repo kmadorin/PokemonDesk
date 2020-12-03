@@ -817,7 +817,7 @@
             mappings:
               'AAEA;EACE,WAAW;EACX,aAAa;EACb,cCDiB;EDEjB,yBCHkB;EDIlB,gBAAgB,EAAA;;AAGlB;EACE,aAAa;EACb,sBAAsB;EACtB,uBAAuB;EACvB,iBAAiB;EACjB,YAAY;EACZ,cAAc;EACd,kBAAkB,EAAA;;AAGpB;EACE,kBAAkB;EAClB,UAAU,EAAA;EAFZ;IAKI,cAAc;IACd,WAAW;IACX,eAAe;IACf,YAAY;IACZ,cAAc,EAAA;EATlB;IAaI,cAAc;IACd,kBAAkB;IAClB,QAAQ;IACR,SAAS;IACT,WAAW;IACX,gBAAgB;IAChB,eAAe;IACf,yBAAyB;IACzB,kBAAkB;IAClB,mBAAmB;IACnB,gCAAgC;IAChC,8CAA8C,EAAA;;AAIlD;EACE,kBAAkB;EAClB,gBAAgB;EAChB,cAAc;EACd,kBAAkB,EAAA;EAJpB;IAOI,cClDc,EAAA;;ADsDlB;EACE,kBAAkB;EAClB,gBAAgB,EAAA',
             sourcesContent: [
-              "@import '../../variables';\n\n.root {\n  width: 100%;\n  height: 100vh;\n  color: $clr-white;\n  background-color: $clr-danger;\n  overflow: hidden;\n}\n\n.container {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  max-width: 1250px;\n  height: 100%;\n  margin: 0 auto;\n  padding: 40px 16px;\n}\n\n.wrapper {\n  position: relative;\n  z-index: 1;\n\n  & img {\n    display: block;\n    width: 40vw;\n    max-width: 50vw;\n    height: auto;\n    margin: 0 auto;\n  }\n\n  &::before {\n    content: '404';\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    z-index: -1;\n    font-weight: 700;\n    font-size: 40vw;\n    color: rgba(0, 0, 0, 0.5);\n    text-align: center;\n    letter-spacing: 4px;\n    transform: translate(-50%, -50%);\n    text-shadow: 4px 4px 24px rgba(1, 17, 38, 0.2);\n  }\n}\n\n.text {\n  margin: 0 0 40px 0;\n  font-weight: 700;\n  font-size: 3vw;\n  text-align: center;\n\n  & span {\n    color: $clr-dark;\n  }\n}\n\n.button {\n  align-self: center;\n  min-width: 230px;\n}",
+              "@import '../../variables';\n\n.root {\n  width: 100%;\n  height: 100vh;\n  color: $clr-white;\n  background-color: $clr-danger;\n  overflow: hidden;\n}\n\n.container {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  max-width: 1250px;\n  height: 100%;\n  margin: 0 auto;\n  padding: 40px 16px;\n}\n\n.wrapper {\n  position: relative;\n  z-index: 1;\n\n  & img {\n    display: block;\n    width: 40vw;\n    max-width: 50vw;\n    height: auto;\n    margin: 0 auto;\n  }\n\n  &::before {\n    content: '404';\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    z-index: -1;\n    font-weight: 700;\n    font-size: 40vw;\n    color: rgba(0, 0, 0, 0.5);\n    text-align: center;\n    letter-spacing: 4px;\n    transform: translate(-50%, -50%);\n    text-shadow: 4px 4px 24px rgba(1, 17, 38, 0.2);\n  }\n}\n\n.text {\n  margin: 0 0 40px 0;\n  font-weight: 700;\n  font-size: 3vw;\n  text-align: center;\n\n  & span {\n    color: $clr-dark;\n  }\n}\n\n.button {\n  align-self: center;\n  min-width: 230px;\n}\n",
               '$clr-third: #f5db13;\n$clr-primary: #f2b807;\n$clr-secondary: #f28f16;\n$clr-danger: #d93e30;\n$clr-white: #f2f2f2;\n$clr-dark: #212121;\n$clr-green: #73d677;\n$clr-blue: #07d6f2;\n$clr-red: #b33327;\n',
             ],
             sourceRoot: '',
@@ -38087,6 +38087,232 @@ object-assign
         /***/
       },
 
+    /***/ './src/config/index.tsx':
+      /*!******************************!*\
+  !*** ./src/config/index.tsx ***!
+  \******************************/
+      /*! no static exports found */
+      /***/ function (module, exports, __webpack_require__) {
+        'use strict';
+
+        Object.defineProperty(exports, '__esModule', { value: true });
+        exports.config = void 0;
+        exports.config = {
+          client: {
+            server: {
+              protocol: 'http',
+              host: 'zar.hosthot.ru',
+            },
+            endpoint: {
+              getPokemons: {
+                method: 'GET',
+                uri: {
+                  pathname: '/api/v1/pokemons',
+                },
+              },
+            },
+          },
+        };
+        exports.default = exports.config;
+
+        /***/
+      },
+
+    /***/ './src/hook/getData.ts':
+      /*!*****************************!*\
+  !*** ./src/hook/getData.ts ***!
+  \*****************************/
+      /*! no static exports found */
+      /***/ function (module, exports, __webpack_require__) {
+        'use strict';
+
+        var __awaiter =
+          (this && this.__awaiter) ||
+          function (thisArg, _arguments, P, generator) {
+            function adopt(value) {
+              return value instanceof P
+                ? value
+                : new P(function (resolve) {
+                    resolve(value);
+                  });
+            }
+            return new (P || (P = Promise))(function (resolve, reject) {
+              function fulfilled(value) {
+                try {
+                  step(generator.next(value));
+                } catch (e) {
+                  reject(e);
+                }
+              }
+              function rejected(value) {
+                try {
+                  step(generator['throw'](value));
+                } catch (e) {
+                  reject(e);
+                }
+              }
+              function step(result) {
+                result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+              }
+              step((generator = generator.apply(thisArg, _arguments || [])).next());
+            });
+          };
+        var __generator =
+          (this && this.__generator) ||
+          function (thisArg, body) {
+            var _ = {
+                label: 0,
+                sent: function () {
+                  if (t[0] & 1) throw t[1];
+                  return t[1];
+                },
+                trys: [],
+                ops: [],
+              },
+              f,
+              y,
+              t,
+              g;
+            return (
+              (g = { next: verb(0), throw: verb(1), return: verb(2) }),
+              typeof Symbol === 'function' &&
+                (g[Symbol.iterator] = function () {
+                  return this;
+                }),
+              g
+            );
+            function verb(n) {
+              return function (v) {
+                return step([n, v]);
+              };
+            }
+            function step(op) {
+              if (f) throw new TypeError('Generator is already executing.');
+              while (_)
+                try {
+                  if (
+                    ((f = 1),
+                    y &&
+                      (t =
+                        op[0] & 2 ? y['return'] : op[0] ? y['throw'] || ((t = y['return']) && t.call(y), 0) : y.next) &&
+                      !(t = t.call(y, op[1])).done)
+                  )
+                    return t;
+                  if (((y = 0), t)) op = [op[0] & 2, t.value];
+                  switch (op[0]) {
+                    case 0:
+                    case 1:
+                      t = op;
+                      break;
+                    case 4:
+                      _.label++;
+                      return { value: op[1], done: false };
+                    case 5:
+                      _.label++;
+                      y = op[1];
+                      op = [0];
+                      continue;
+                    case 7:
+                      op = _.ops.pop();
+                      _.trys.pop();
+                      continue;
+                    default:
+                      if (!((t = _.trys), (t = t.length > 0 && t[t.length - 1])) && (op[0] === 6 || op[0] === 2)) {
+                        _ = 0;
+                        continue;
+                      }
+                      if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) {
+                        _.label = op[1];
+                        break;
+                      }
+                      if (op[0] === 6 && _.label < t[1]) {
+                        _.label = t[1];
+                        t = op;
+                        break;
+                      }
+                      if (t && _.label < t[2]) {
+                        _.label = t[2];
+                        _.ops.push(op);
+                        break;
+                      }
+                      if (t[2]) _.ops.pop();
+                      _.trys.pop();
+                      continue;
+                  }
+                  op = body.call(thisArg, _);
+                } catch (e) {
+                  op = [6, e];
+                  y = 0;
+                } finally {
+                  f = t = 0;
+                }
+              if (op[0] & 5) throw op[1];
+              return { value: op[0] ? op[1] : void 0, done: true };
+            }
+          };
+        var __importDefault =
+          (this && this.__importDefault) ||
+          function (mod) {
+            return mod && mod.__esModule ? mod : { default: mod };
+          };
+        Object.defineProperty(exports, '__esModule', { value: true });
+        var react_1 = __webpack_require__(/*! react */ './node_modules/react/index.js');
+        var request_1 = __importDefault(__webpack_require__(/*! ../utils/request */ './src/utils/request.ts'));
+        var useData = function (endpoint, query, deps) {
+          if (deps === void 0) {
+            deps = [];
+          }
+          var _a = react_1.useState(null),
+            data = _a[0],
+            setData = _a[1];
+          var _b = react_1.useState(false),
+            isLoading = _b[0],
+            setLoading = _b[1];
+          var _c = react_1.useState(null),
+            isError = _c[0],
+            setError = _c[1];
+          react_1.useEffect(function () {
+            var getData = function () {
+              return __awaiter(void 0, void 0, void 0, function () {
+                var result, e_1;
+                return __generator(this, function (_a) {
+                  switch (_a.label) {
+                    case 0:
+                      setLoading(true);
+                      _a.label = 1;
+                    case 1:
+                      _a.trys.push([1, 3, 4, 5]);
+                      return [4 /*yield*/, request_1.default(endpoint, query)];
+                    case 2:
+                      result = _a.sent();
+                      setData(result);
+                      return [3 /*break*/, 5];
+                    case 3:
+                      e_1 = _a.sent();
+                      setError(true);
+                      return [3 /*break*/, 5];
+                    case 4:
+                      setLoading(false);
+                      return [7 /*endfinally*/];
+                    case 5:
+                      return [2 /*return*/];
+                  }
+                });
+              });
+            };
+            getData();
+          }, deps);
+          return {
+            data: data,
+            isLoading: isLoading,
+            isError: isError,
+          };
+        };
+        exports.default = useData;
+
+        /***/
+      },
+
     /***/ './src/index.scss':
       /*!************************!*\
   !*** ./src/index.scss ***!
@@ -38448,6 +38674,20 @@ object-assign
       /***/ function (module, exports, __webpack_require__) {
         'use strict';
 
+        var __assign =
+          (this && this.__assign) ||
+          function () {
+            __assign =
+              Object.assign ||
+              function (t) {
+                for (var s, i = 1, n = arguments.length; i < n; i++) {
+                  s = arguments[i];
+                  for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+                }
+                return t;
+              };
+            return __assign.apply(this, arguments);
+          };
         var __createBinding =
           (this && this.__createBinding) ||
           (Object.create
@@ -38484,6 +38724,222 @@ object-assign
             __setModuleDefault(result, mod);
             return result;
           };
+        var __importDefault =
+          (this && this.__importDefault) ||
+          function (mod) {
+            return mod && mod.__esModule ? mod : { default: mod };
+          };
+        Object.defineProperty(exports, '__esModule', { value: true });
+        var react_1 = __importStar(__webpack_require__(/*! react */ './node_modules/react/index.js'));
+        var Layout_1 = __importDefault(
+          __webpack_require__(/*! ../../components/Layout */ './src/components/Layout/index.tsx'),
+        );
+        var Footer_1 = __importDefault(
+          __webpack_require__(/*! ../../components/Footer */ './src/components/Footer/index.tsx'),
+        );
+        var Heading_1 = __importDefault(
+          __webpack_require__(/*! ../../components/Heading */ './src/components/Heading/index.tsx'),
+        );
+        var Filter_1 = __importDefault(
+          __webpack_require__(/*! ../../components/Filter */ './src/components/Filter/index.tsx'),
+        );
+        var PokemonCard_1 = __importDefault(
+          __webpack_require__(/*! ../../components/PokemonCard */ './src/components/PokemonCard/index.tsx'),
+        );
+        var getData_1 = __importDefault(__webpack_require__(/*! ../../hook/getData */ './src/hook/getData.ts'));
+        var Pokedex_module_scss_1 = __importDefault(
+          __webpack_require__(/*! ./Pokedex.module.scss */ './src/pages/Pokedex/Pokedex.module.scss'),
+        );
+        var Pokedex = function () {
+          var _a = react_1.useState(''),
+            searchValue = _a[0],
+            setSearchValue = _a[1];
+          var _b = react_1.useState({}),
+            query = _b[0],
+            setQuery = _b[1];
+          var _c = getData_1.default('getPokemons', query, [searchValue]),
+            data = _c.data,
+            isLoading = _c.isLoading,
+            isError = _c.isError;
+          var handleSearchChange = function (e) {
+            setSearchValue(e.target.value);
+            setQuery(function (s) {
+              return __assign(__assign({}, s), { name: e.target.value });
+            });
+          };
+          if (isError) {
+            return react_1.default.createElement('div', null, 'Something wrong!');
+          }
+          return react_1.default.createElement(
+            'div',
+            { className: Pokedex_module_scss_1.default.root },
+            react_1.default.createElement(
+              Layout_1.default,
+              { className: Pokedex_module_scss_1.default.container },
+              react_1.default.createElement(
+                Heading_1.default,
+                { className: Pokedex_module_scss_1.default.title },
+                data === null || data === void 0 ? void 0 : data.total,
+                ' ',
+                react_1.default.createElement('b', null, 'Pokemons'),
+                ' for you to choose your favorite',
+              ),
+              react_1.default.createElement('input', {
+                type: 'search',
+                className: Pokedex_module_scss_1.default.search,
+                placeholder: 'Encuentra tu pok\u00E9mon...',
+                value: searchValue,
+                onChange: handleSearchChange,
+              }),
+              react_1.default.createElement(
+                'div',
+                { className: Pokedex_module_scss_1.default.filters },
+                react_1.default.createElement(Filter_1.default, null),
+                react_1.default.createElement(Filter_1.default, null),
+                react_1.default.createElement(Filter_1.default, null),
+              ),
+              isLoading
+                ? 'Loading Pokemons'
+                : react_1.default.createElement(
+                    'ul',
+                    { className: Pokedex_module_scss_1.default.list },
+                    data === null || data === void 0
+                      ? void 0
+                      : data.pokemons.map(function (item) {
+                          return react_1.default.createElement(
+                            'li',
+                            { key: item.id },
+                            react_1.default.createElement(PokemonCard_1.default, { pokemon: item }),
+                          );
+                        }),
+                  ),
+            ),
+            react_1.default.createElement(Footer_1.default, null),
+          );
+        };
+        exports.default = Pokedex;
+
+        /***/
+      },
+
+    /***/ './src/routes.tsx':
+      /*!************************!*\
+  !*** ./src/routes.tsx ***!
+  \************************/
+      /*! no static exports found */
+      /***/ function (module, exports, __webpack_require__) {
+        'use strict';
+
+        var __importDefault =
+          (this && this.__importDefault) ||
+          function (mod) {
+            return mod && mod.__esModule ? mod : { default: mod };
+          };
+        Object.defineProperty(exports, '__esModule', { value: true });
+        exports.GENERAL_MENU = exports.LinkEnum = void 0;
+        var react_1 = __importDefault(__webpack_require__(/*! react */ './node_modules/react/index.js'));
+        var Home_1 = __importDefault(__webpack_require__(/*! ./pages/Home */ './src/pages/Home/index.tsx'));
+        var Empty_1 = __importDefault(__webpack_require__(/*! ./pages/Empty */ './src/pages/Empty/index.tsx'));
+        var Pokedex_1 = __importDefault(__webpack_require__(/*! ./pages/Pokedex */ './src/pages/Pokedex/index.tsx'));
+        var LinkEnum;
+        (function (LinkEnum) {
+          LinkEnum['HOME'] = '/';
+          LinkEnum['POKEDEX'] = '/pokedex';
+          LinkEnum['LEGENDARIES'] = '/legendaries';
+          LinkEnum['DOCUMENTATION'] = '/documentation';
+        })((LinkEnum = exports.LinkEnum || (exports.LinkEnum = {})));
+        // const MENU: IMenu[] = [
+        exports.GENERAL_MENU = [
+          {
+            title: 'Home',
+            link: LinkEnum.HOME,
+            component: function () {
+              return react_1.default.createElement(Home_1.default, null);
+            },
+          },
+          {
+            title: 'Pokédex',
+            link: LinkEnum.POKEDEX,
+            component: function () {
+              return react_1.default.createElement(Pokedex_1.default, null);
+            },
+          },
+          {
+            title: 'Legendaries',
+            link: LinkEnum.LEGENDARIES,
+            component: function () {
+              return react_1.default.createElement(Empty_1.default, { title: 'Legendaries' });
+            },
+          },
+          {
+            title: 'Documentation',
+            link: LinkEnum.DOCUMENTATION,
+            component: function () {
+              return react_1.default.createElement(Empty_1.default, { title: 'Documentation' });
+            },
+          },
+        ];
+        var routes = exports.GENERAL_MENU.reduce(function (acc, item) {
+          acc[item.link] = item.component;
+          return acc;
+        }, {});
+        exports.default = routes;
+
+        /***/
+      },
+
+    /***/ './src/utils/getUrlWithParamsConfig.ts':
+      /*!*********************************************!*\
+  !*** ./src/utils/getUrlWithParamsConfig.ts ***!
+  \*********************************************/
+      /*! no static exports found */
+      /***/ function (module, exports, __webpack_require__) {
+        'use strict';
+
+        var __assign =
+          (this && this.__assign) ||
+          function () {
+            __assign =
+              Object.assign ||
+              function (t) {
+                for (var s, i = 1, n = arguments.length; i < n; i++) {
+                  s = arguments[i];
+                  for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+                }
+                return t;
+              };
+            return __assign.apply(this, arguments);
+          };
+        var __importDefault =
+          (this && this.__importDefault) ||
+          function (mod) {
+            return mod && mod.__esModule ? mod : { default: mod };
+          };
+        Object.defineProperty(exports, '__esModule', { value: true });
+        var config_1 = __importDefault(__webpack_require__(/*! ../config */ './src/config/index.tsx'));
+        function getUrlWithParamsConfig(endpointConfig, query) {
+          var url = __assign(
+            __assign(
+              __assign({}, config_1.default.client.server),
+              config_1.default.client.endpoint[endpointConfig].uri,
+            ),
+            { query: query },
+          );
+          return url;
+        }
+        exports.default = getUrlWithParamsConfig;
+
+        /***/
+      },
+
+    /***/ './src/utils/request.ts':
+      /*!******************************!*\
+  !*** ./src/utils/request.ts ***!
+  \******************************/
+      /*! no static exports found */
+      /***/ function (module, exports, __webpack_require__) {
+        'use strict';
+
         var __awaiter =
           (this && this.__awaiter) ||
           function (thisArg, _arguments, P, generator) {
@@ -38614,197 +39070,26 @@ object-assign
             return mod && mod.__esModule ? mod : { default: mod };
           };
         Object.defineProperty(exports, '__esModule', { value: true });
-        var react_1 = __importStar(__webpack_require__(/*! react */ './node_modules/react/index.js'));
-        var Layout_1 = __importDefault(
-          __webpack_require__(/*! ../../components/Layout */ './src/components/Layout/index.tsx'),
+        var url_1 = __importDefault(__webpack_require__(/*! url */ './node_modules/url/url.js'));
+        var getUrlWithParamsConfig_1 = __importDefault(
+          __webpack_require__(/*! ./getUrlWithParamsConfig */ './src/utils/getUrlWithParamsConfig.ts'),
         );
-        var Footer_1 = __importDefault(
-          __webpack_require__(/*! ../../components/Footer */ './src/components/Footer/index.tsx'),
-        );
-        var Heading_1 = __importDefault(
-          __webpack_require__(/*! ../../components/Heading */ './src/components/Heading/index.tsx'),
-        );
-        var Filter_1 = __importDefault(
-          __webpack_require__(/*! ../../components/Filter */ './src/components/Filter/index.tsx'),
-        );
-        var PokemonCard_1 = __importDefault(
-          __webpack_require__(/*! ../../components/PokemonCard */ './src/components/PokemonCard/index.tsx'),
-        );
-        var Pokedex_module_scss_1 = __importDefault(
-          __webpack_require__(/*! ./Pokedex.module.scss */ './src/pages/Pokedex/Pokedex.module.scss'),
-        );
-        var usePokemons = function () {
-          var _a = react_1.default.useState(null),
-            data = _a[0],
-            setData = _a[1];
-          var _b = react_1.default.useState(false),
-            isLoading = _b[0],
-            setLoading = _b[1];
-          var _c = react_1.default.useState(null),
-            isError = _c[0],
-            setError = _c[1];
-          react_1.useEffect(function () {
-            var getPokemons = function () {
-              return __awaiter(void 0, void 0, void 0, function () {
-                var response, result, e_1;
-                return __generator(this, function (_a) {
-                  switch (_a.label) {
-                    case 0:
-                      setLoading(true);
-                      _a.label = 1;
-                    case 1:
-                      _a.trys.push([1, 4, 5, 6]);
-                      return [4 /*yield*/, fetch('http://zar.hosthot.ru/api/v1/pokemons')];
-                    case 2:
-                      response = _a.sent();
-                      return [4 /*yield*/, response.json()];
-                    case 3:
-                      result = _a.sent();
-                      setData(result);
-                      setLoading(false);
-                      return [3 /*break*/, 6];
-                    case 4:
-                      e_1 = _a.sent();
-                      setError(true);
-                      return [3 /*break*/, 6];
-                    case 5:
-                      setLoading(false);
-                      return [7 /*endfinally*/];
-                    case 6:
-                      return [2 /*return*/];
-                  }
-                });
-              });
-            };
-            getPokemons();
-          }, []);
-          return {
-            data: data,
-            isLoading: isLoading,
-            isError: isError,
-          };
-        };
-        var Pokedex = function () {
-          var _a = usePokemons(),
-            data = _a.data,
-            isLoading = _a.isLoading,
-            isError = _a.isError;
-          if (isLoading) {
-            return react_1.default.createElement('div', null, 'Loading Pokemons...');
-          }
-          if (isError) {
-            return react_1.default.createElement('div', null, 'Something wrong!');
-          }
-          return react_1.default.createElement(
-            'div',
-            { className: Pokedex_module_scss_1.default.root },
-            react_1.default.createElement(
-              Layout_1.default,
-              { className: Pokedex_module_scss_1.default.container },
-              react_1.default.createElement(
-                Heading_1.default,
-                { className: Pokedex_module_scss_1.default.title },
-                data === null || data === void 0 ? void 0 : data.total,
-                ' ',
-                react_1.default.createElement('b', null, 'Pokemons'),
-                ' for you to choose your favorite',
-              ),
-              react_1.default.createElement('input', {
-                type: 'search',
-                className: Pokedex_module_scss_1.default.search,
-                placeholder: 'Encuentra tu pok\u00E9mon...',
-              }),
-              react_1.default.createElement(
-                'div',
-                { className: Pokedex_module_scss_1.default.filters },
-                react_1.default.createElement(Filter_1.default, null),
-                react_1.default.createElement(Filter_1.default, null),
-                react_1.default.createElement(Filter_1.default, null),
-              ),
-              react_1.default.createElement(
-                'ul',
-                { className: Pokedex_module_scss_1.default.list },
-                data === null || data === void 0
-                  ? void 0
-                  : data.pokemons.map(function (item) {
-                      return react_1.default.createElement(
-                        'li',
-                        { key: item.id },
-                        react_1.default.createElement(PokemonCard_1.default, { pokemon: item }),
-                      );
-                    }),
-              ),
-            ),
-            react_1.default.createElement(Footer_1.default, null),
-          );
-        };
-        exports.default = Pokedex;
-
-        /***/
-      },
-
-    /***/ './src/routes.tsx':
-      /*!************************!*\
-  !*** ./src/routes.tsx ***!
-  \************************/
-      /*! no static exports found */
-      /***/ function (module, exports, __webpack_require__) {
-        'use strict';
-
-        var __importDefault =
-          (this && this.__importDefault) ||
-          function (mod) {
-            return mod && mod.__esModule ? mod : { default: mod };
-          };
-        Object.defineProperty(exports, '__esModule', { value: true });
-        exports.GENERAL_MENU = exports.LinkEnum = void 0;
-        var react_1 = __importDefault(__webpack_require__(/*! react */ './node_modules/react/index.js'));
-        var Home_1 = __importDefault(__webpack_require__(/*! ./pages/Home */ './src/pages/Home/index.tsx'));
-        var Empty_1 = __importDefault(__webpack_require__(/*! ./pages/Empty */ './src/pages/Empty/index.tsx'));
-        var Pokedex_1 = __importDefault(__webpack_require__(/*! ./pages/Pokedex */ './src/pages/Pokedex/index.tsx'));
-        var LinkEnum;
-        (function (LinkEnum) {
-          LinkEnum['HOME'] = '/';
-          LinkEnum['POKEDEX'] = '/pokedex';
-          LinkEnum['LEGENDARIES'] = '/legendaries';
-          LinkEnum['DOCUMENTATION'] = '/documentation';
-        })((LinkEnum = exports.LinkEnum || (exports.LinkEnum = {})));
-        // const MENU: IMenu[] = [
-        exports.GENERAL_MENU = [
-          {
-            title: 'Home',
-            link: LinkEnum.HOME,
-            component: function () {
-              return react_1.default.createElement(Home_1.default, null);
-            },
-          },
-          {
-            title: 'Pokédex',
-            link: LinkEnum.POKEDEX,
-            component: function () {
-              return react_1.default.createElement(Pokedex_1.default, null);
-            },
-          },
-          {
-            title: 'Legendaries',
-            link: LinkEnum.LEGENDARIES,
-            component: function () {
-              return react_1.default.createElement(Empty_1.default, { title: 'Legendaries' });
-            },
-          },
-          {
-            title: 'Documentation',
-            link: LinkEnum.DOCUMENTATION,
-            component: function () {
-              return react_1.default.createElement(Empty_1.default, { title: 'Documentation' });
-            },
-          },
-        ];
-        var routes = exports.GENERAL_MENU.reduce(function (acc, item) {
-          acc[item.link] = item.component;
-          return acc;
-        }, {});
-        exports.default = routes;
+        function req(endpoint, query) {
+          return __awaiter(this, void 0, void 0, function () {
+            var uri, response;
+            return __generator(this, function (_a) {
+              switch (_a.label) {
+                case 0:
+                  uri = url_1.default.format(getUrlWithParamsConfig_1.default(endpoint, query));
+                  return [4 /*yield*/, fetch(uri)];
+                case 1:
+                  response = _a.sent();
+                  return [2 /*return*/, response.json()];
+              }
+            });
+          });
+        }
+        exports.default = req;
 
         /***/
       },
